@@ -36,7 +36,7 @@ int main()
 
 		imshow("while: in the range", detectMat);
 		imshow("frame", rFrame);
-		waitKey(0);
+		waitKey(30);
 	}
 }
 
