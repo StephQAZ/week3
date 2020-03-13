@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
-
+#include <opencv2/opencv.hpp>
+using namespace cv;
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	cv::Mat srcMat = imread("C:\\Users\\27318\\Desktop\\大二下网络课程\\数字图像\\curry.jpg", 0);
+	cv::Mat dstMat1, dstMat2;
+	threshold(srcMat, dstMat1, 0, 255, THRESH_OTSU);
+	imshow("大津法", dstMat1);
+	adaptiveThreshold(srcMat, dstMat2, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY_INV, 15, 10);
+	imshow("自适应二值化", dstMat2);
+	waitKey(0);
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
